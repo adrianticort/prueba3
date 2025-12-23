@@ -2,411 +2,97 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¡Hola, Adrián!</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: white;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-      text-align: center;
-    }
-    .hidden {
-      display: none;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      width: 280px;
-      padding: 1.5rem;
-      border-radius: 20px;
-      text-decoration: none;
-      color: white;
-      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    .ejercicios {
-      background: #3b82f6;
-    }
-    .desayunos {
-      background: #10b981;
-    }
-    .icono {
-      font-size: 2rem;
-      background-color: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.5rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .volver {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.5rem 1rem;
-      background-color: #475569;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .volver:hover {
-      background-color: #334155;
-    }
-    .calendar, .calendar-header, .rutina, .desayuno {
-      margin-top: 1rem;
-    }
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 0.5rem;
-    }
-    .calendar-header {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 0.5rem;
-      font-weight: bold;
-    }
-    .day {
-      background-color: #334155;
-      padding: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .day:hover {
-      background-color: #475569;
-    }
-    .weekend {
-      background-color: #f59e0b !important;
-      color: black;
-    }
-    .today {
-      outline: 2px solid #3b82f6;
-      background-color: #1e40af !important;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>FitPulse 🔥 Tu Rutina Diaria</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <!-- Página principal -->
-    <div id="inicio">
-      <h1>¡Hola, Adrián!</h1>
-      <p class="objetivo">Primer objetivo: <strong>15 de septiembre</strong>. Faltan <span id="contador">calculando...</span> días</p>
-      <div class="cards">
-        <div class="card ejercicios" onclick="mostrar('ejercicios')">
-          <div class="icono">⚡</div>
-          <h2>Ejercicios</h2>
-          <p>Mis rutinas de entrenamiento semanales.</p>
-        </div>
-        <div class="card desayunos" onclick="mostrar('desayunos')">
-          <div class="icono">➕</div>
-          <h2>Desayunos</h2>
-          <p>Mis desayunos saludables semanales.</p>
-        </div>
-      </div>
-      <div class="motivacion" style="margin-top: 3rem;">
-        <h2>¡Tú puedes lograrlo!</h2>
-        <p>Cada entrenamiento te acerca más a tu meta. 💪</p>
-        <small>"La disciplina es el puente entre tus metas y tus logros"</small>
-      </div>
-    </div>
-
-
-
-
-
-
-    <!-- Sección de Ejercicios -->
-    <div id="ejercicios" class="hidden">
-
-      <h1>Calendario de Ejercicios - Julio 2025</h1>
-      <div class="calendar-header">
-        <div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div><div>Dom</div>
-      </div>
-      <div class="calendar" id="calendar"></div>
-      <div class="rutina" id="rutina"></div>
-      <div class="volver" onclick="volver()">← Volver</div>
-    </div>
-
-
-
-
-    <!-- Sección de Desayunos -->
-    <div id="desayunos" class="hidden">
-      <h1>Desayunos Semanales</h1>
-      <div class="calendar-header" style="grid-template-columns: repeat(5, 1fr);">
-        <div>L</div><div>M</div><div>X</div><div>J</div><div>V</div>
-      </div>
-      <div class="calendar" style="grid-template-columns: repeat(5, 1fr);" id="desayunoDias">
-        <div class="day" data-dia="L">L</div>
-        <div class="day" data-dia="M">M</div>
-        <div class="day" data-dia="X">X</div>
-        <div class="day" data-dia="J">J</div>
-        <div class="day" data-dia="V">V</div>
-      </div>
-      <div class="desayuno" id="desayuno"></div>
-      <div class="volver" onclick="volver()">← Volver</div>
-    </div>
-
-
-
-
-
-
-
-
+  <!-- Fondo animado -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
   </div>
 
-  <script>
-    // Mostrar días restantes
-    function calcularDiasRestantes() {
-      const hoy = new Date();
-      const objetivo = new Date(hoy.getFullYear(), 8, 15); // Septiembre es mes 8
-      const diferencia = objetivo - hoy;
-      const dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
-      document.getElementById("contador").textContent = dias > 0 ? dias : "¡Meta alcanzada!";
-    }
-    calcularDiasRestantes();
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <span class="logo">⚡</span>
+      <div>
+        <h1 class="app-name">FitPulse</h1>
+        <p class="tagline">Tu mejor versión</p>
+      </div>
+    </div>
+    <button id="statsBtn" class="stats-btn" aria-label="Ver estadísticas">
+      <span class="streak-fire">🔥</span>
+      <span id="streakCount" class="streak-count">0</span>
+    </button>
+  </header>
 
-    // Navegación entre secciones
-    function mostrar(seccion) {
-      document.getElementById("inicio").classList.add("hidden");
-      document.getElementById("ejercicios").classList.add("hidden");
-      document.getElementById("desayunos").classList.add("hidden");
-      document.getElementById(seccion).classList.remove("hidden");
-    }
-    function volver() {
-      document.getElementById("inicio").classList.remove("hidden");
-      document.getElementById("ejercicios").classList.add("hidden");
-      document.getElementById("desayunos").classList.add("hidden");
-    }
+  <!-- Frase motivacional -->
+  <div class="motivation-card">
+    <p id="motivationText" class="motivation-text">"El único mal entrenamiento es el que no hiciste."</p>
+    <button id="newQuoteBtn" class="new-quote-btn">✨</button>
+  </div>
 
-    // Lógica de calendario de ejercicios
-    const calendar = document.getElementById('calendar');
-    const rutinaDiv = document.getElementById('rutina');
-    const rutinas = {
-         1: `<h2>Lunes – Fuerza de empuje y core (base para planche y pino)</h2>
-      <ul>
-        <li><strong>Pseudo planche push-ups (4x6-10)</strong><br>
-        Ponte en posición de flexión pero adelanta las manos, casi a la altura del abdomen. Inclina tu cuerpo hacia adelante y haz una flexión normal. Sentirás que tus hombros trabajan más que en una flexión común.</li>
+  <!-- Calendario semanal -->
+  <section class="week-section">
+    <div class="week-header">
+      <button id="prevWeek" class="week-nav" aria-label="Semana anterior">‹</button>
+      <h2 id="weekTitle" class="week-title">Esta semana</h2>
+      <button id="nextWeek" class="week-nav" aria-label="Semana siguiente">›</button>
+    </div>
+    <div id="weekDays" class="week-days">
+      <!-- Generado por JS -->
+    </div>
+  </section>
 
-        <li><strong>Pike push-ups (3x6-8)</strong><br>
-        Ponte como en forma de "V" invertida, con los glúteos hacia arriba. Baja la cabeza en línea recta entre las manos y vuelve a subir. Es como una flexión pero con el cuerpo inclinado hacia abajo.</li>
+  <!-- Contenido del día -->
+  <main id="dayContent" class="day-content">
+    <!-- Generado por JS -->
+  </main>
 
-        <li><strong>Planche lean hold (4x20-30s)</strong><br>
-        Apoya las manos en el suelo, piernas estiradas y pies en el suelo. Inclina el cuerpo hacia adelante lo más que puedas, sin despegar los pies. Mantén esa posición. Siente cómo trabajan los hombros y el abdomen.</li>
+  <!-- Navegación inferior -->
+  <nav class="bottom-nav">
+    <button id="navWorkout" class="nav-item active" data-section="workout">
+      <span class="nav-icon">💪</span>
+      <span class="nav-label">Entreno</span>
+    </button>
+    <button id="navFood" class="nav-item" data-section="food">
+      <span class="nav-icon">🍳</span>
+      <span class="nav-label">Comida</span>
+    </button>
+    <button id="navProgress" class="nav-item" data-section="progress">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Progreso</span>
+    </button>
+  </nav>
 
-        <li><strong>Hollow body hold (3x30s)</strong><br>
-        Túmbate boca arriba. Eleva los hombros y las piernas del suelo, manteniendo la parte baja de la espalda pegada al suelo. Aprieta el abdomen todo el tiempo.</li>
-      </ul>`,
-    2: `<h2>Martes – Espalda superior y postura (tirón)</h2>
-      <ul>
-        <li><strong>Wall scapula slides (3x15)</strong><br>
-        Ponte de pie con la espalda y brazos contra la pared formando una “W”. Sube lentamente los brazos en línea recta y vuelve a bajar. No despegar la espalda de la pared.</li>
+  <!-- Modal de estadísticas -->
+  <div id="statsModal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>📊 Tu Progreso</h2>
+        <button id="closeStats" class="modal-close">✕</button>
+      </div>
+      <div id="statsBody" class="modal-body">
+        <!-- Generado por JS -->
+      </div>
+    </div>
+  </div>
 
-        <li><strong>Prone Y-T-Ws (3x10 de cada uno)</strong><br>
-        Túmbate boca abajo. Levanta los brazos en forma de “Y”, luego “T”, luego “W”, manteniéndolos elevados 2 segundos. En cada forma, aprieta los omóplatos.</li>
+  <!-- Toast -->
+  <div id="toast" class="toast hidden">
+    <span id="toastIcon" class="toast-icon">✓</span>
+    <span id="toastMsg" class="toast-msg">¡Guardado!</span>
+  </div>
 
-        <li><strong>Superman pull (3x8-10)</strong><br>
-        Boca abajo, brazos extendidos al frente. Levanta piernas y brazos (posición superman), y luego lleva los codos hacia atrás como si hicieras un remo.</li>
+  <!-- Confetti container -->
+  <div id="confetti" class="confetti-container" aria-hidden="true"></div>
 
-        <li><strong>Reverse plank hold (3x30s)</strong><br>
-        Siéntate, pon las manos detrás y estira las piernas. Levanta la cadera y empuja el pecho hacia arriba. Mantén la posición como una tabla invertida.</li>
-      </ul>`,
-    3: `<h2>Miércoles – Control de pino y hombros</h2>
-      <ul>
-        <li><strong>Wall handstand hold (4x30-45s)</strong><br>
-        Apoya los pies en la pared mirando hacia ella. Estira los brazos completamente, mete el abdomen y aprieta los glúteos. Mantén la línea recta con el cuerpo.</li>
-
-        <li><strong>Wall shoulder taps (3x6-10)</strong><br>
-        En la misma posición de pino en la pared, levanta una mano por un segundo y vuelve a apoyarla. Cambia de mano. Hazlo lento y con control.</li>
-
-        <li><strong>Wrist push-ups (3x10)</strong><br>
-        En posición de rodillas, pon las manos de forma que los dedos apunten hacia ti. Sube y baja apoyándote sobre las muñecas. Es para fortalecerlas.</li>
-
-        <li><strong>Shoulder mobility drills (2x10)</strong><br>
-        Junta las manos por detrás de la espalda (una desde arriba y otra desde abajo). Intenta que se toquen. Cambia de brazo. Abre el pecho y relaja los hombros.</li>
-      </ul>`,
-    4: `<h2>Jueves – Piernas fuertes y abdomen</h2>
-      <ul>
-        <li><strong>Bulgarian split squats (3x8-10 por pierna)</strong><br>
-        Pon un pie detrás sobre una silla y el otro adelante. Baja como si hicieras una sentadilla con una sola pierna. Cambia de pierna después.</li>
-
-        <li><strong>Nordic curl negativo (3x4-6)</strong><br>
-        Arrodíllate y sujeta tus pies con algo pesado o que alguien te ayude. Baja lentamente hacia adelante, usando los músculos de la parte trasera de las piernas. Usa las manos al final para no caer.</li>
-
-        <li><strong>Leg raises (4x10)</strong><br>
-        Acuéstate y levanta las piernas rectas hasta formar un ángulo de 90°. Baja lentamente sin tocar el suelo.</li>
-
-        <li><strong>Glute bridge march (3x30s)</strong><br>
-        Haz un puente con la cadera levantada, y luego levanta una pierna estirada, después la otra, como marchando en el aire.</li>
-      </ul>`,
-    5: `<h2>Viernes – Movimientos avanzados y planche</h2>
-      <ul>
-        <li><strong>Tuck planche hold (4x10-20s)</strong><br>
-        Apoya las manos en el suelo, sube las piernas encogidas al pecho y despega los pies. Mantén el equilibrio con fuerza en hombros y abdomen.</li>
-
-        <li><strong>Frog to handstand (4x4)</strong><br>
-        Desde posición rana (rodillas sobre brazos), empuja hacia arriba con control para llegar al pino. Usa pared si hace falta.</li>
-
-        <li><strong>L-sit (3x10-20s)</strong><br>
-        Siéntate en el suelo, manos al lado de las caderas. Levanta el cuerpo y las piernas rectas hacia adelante. Si es muy difícil, mantén rodillas dobladas.</li>
-
-        <li><strong>Scapular push-ups + hold (3x10 + 10s)</strong><br>
-        En posición de plancha alta, sin doblar los codos, mueve los hombros hacia adelante y hacia atrás. Luego mantén la posición con los hombros separados (protractados).</li>
-      </ul>`,
-    6: '<h2>Sábado: Descanso activo</h2><p>Caminata, movilidad o estiramientos suaves.</p>',
-    0: '<h2>Domingo: Descanso total</h2><p>Recarga energía. Mañana se entrena fuerte 💪</p>'
-    };
-
-
-    const mes = 6; const año = 2025;
-    const diasDelMes = new Date(año, mes + 1, 0).getDate();
-    const primerDia = new Date(año, mes, 1).getDay();
-    const offset = primerDia === 0 ? 6 : primerDia - 1;
-    for (let i = 0; i < offset; i++) calendar.appendChild(document.createElement('div'));
-    for (let dia = 1; dia <= diasDelMes; dia++) {
-      const fecha = new Date(año, mes, dia);
-      const diaSemana = fecha.getDay();
-      const div = document.createElement('div');
-      div.classList.add('day');
-      if (diaSemana === 0 || diaSemana === 6) div.classList.add('weekend');
-      if (dia === new Date().getDate() && mes === new Date().getMonth()) div.classList.add('today');
-      div.textContent = dia;
-      div.addEventListener('click', () => {
-        rutinaDiv.innerHTML = `<h2>Rutina para el ${dia}/${mes+1}/${año}</h2>${rutinas[diaSemana] || '<p>Descanso.</p>'}`;
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      });
-      calendar.appendChild(div);
-    }
-
-    // Lógica de desayunos
-    const desayunos = {
-     L: `
-      <h2>Lunes: Pancakes estilo stracciatella (600-700 kcal)</h2>
-      <p><strong>Ingredientes:</strong></p>
-      <ul>
-        <li>1 huevo</li>
-        <li>25g de azúcar</li>
-        <li>1/2 plátano maduro</li>
-        <li>35 ml de leche</li>
-        <li>1/2 yogur griego de stracciatella</li>
-        <li>40g de avena molida o harina integral</li>
-        <li>1 cda de levadura química</li>
-        <li>1 cda de crema de cacahuete</li>
-      </ul>
-      <p><strong>Instrucciones:</strong></p>
-      <ol>
-        <li>Tritura el plátano y mézclalo con el huevo, el yogur y la leche.</li>
-        <li>Añade la avena, azúcar y levadura, mezcla hasta que quede homogéneo.</li>
-        <li>Cocina en sartén antiadherente vuelta y vuelta con un poco de aceite.</li>
-        <li>Sirve con la crema de cacahuete por encima.</li>
-      </ol>
-    `,
-    M: `
-      <h2>Martes: Batido energético estilo stracciatella (900-1000 kcal)</h2>
-      <p><strong>Ingredientes:</strong></p>
-      <ul>
-        <li>500 ml de leche entera</li>
-        <li>1 plátano</li>
-        <li>100 g de avena</li>
-        <li>30 g de nueces</li>
-        <li>2 cucharadas de crema de cacahuete</li>
-        <li>1 cucharada de ColaCao</li>
-        <li>1 yogur griego de stracciatella</li>
-      </ul>
-      <p><strong>Instrucciones:</strong></p>
-      <ol>
-        <li>Coloca todos los ingredientes en la licuadora.</li>
-        <li>Licúa hasta obtener una mezcla suave y homogénea.</li>
-        <li>Sirve frío. Puedes acompañarlo con una tostada para sumar aún más calorías.</li>
-      </ol>
-    `,
-    X: `
-      <h2>Miércoles: Tostadas con aguacate, huevo y tomate (600-700 kcal)</h2>
-      <p><strong>Ingredientes:</strong></p>
-      <ul>
-        <li>2 rebanadas de pan integral o de centeno</li>
-        <li>1 aguacate maduro</li>
-        <li>2 huevos</li>
-        <li>1 tomate mediano</li>
-        <li>Aceite de oliva virgen extra</li>
-        <li>Sal y pimienta</li>
-      </ul>
-      <p><strong>Instrucciones:</strong></p>
-      <ol>
-        <li>Tuesta el pan.</li>
-        <li>Fríe o cuece los huevos a tu gusto.</li>
-        <li>Tritura el aguacate y úntalo sobre el pan.</li>
-        <li>Añade rodajas de tomate y coloca los huevos encima.</li>
-        <li>Rocía con aceite de oliva, sal y pimienta.</li>
-      </ol>
-    `,
-    J: `
-      <h2>Jueves: Tortilla francesa con atún y pan con aceite (600-650 kcal)</h2>
-      <p><strong>Ingredientes:</strong></p>
-      <ul>
-        <li>2-3 huevos</li>
-        <li>1 lata de atún en aceite de oliva escurrida</li>
-        <li>2 rebanadas de pan integral</li>
-        <li>Aceite de oliva virgen extra</li>
-        <li>Sal al gusto</li>
-      </ul>
-      <p><strong>Instrucciones:</strong></p>
-      <ol>
-        <li>Bate los huevos y añade el atún escurrido.</li>
-        <li>Cocina en sartén caliente hasta que cuaje.</li>
-        <li>Sirve con pan tostado y un chorro de aceite por encima.</li>
-      </ol>
-    `,
-    V: `
-      <h2>Viernes: Yogur natural con granola casera y fruta (650-750 kcal)</h2>
-      <p><strong>Ingredientes:</strong></p>
-      <ul>
-        <li>1 taza de yogur natural entero o griego</li>
-        <li>½ taza de granola casera o sin azúcares añadidos</li>
-        <li>1 plátano o un puñado de frutos rojos</li>
-        <li>1 cucharada de miel o sirope de agave</li>
-        <li>1 cucharada de nueces o almendras picadas</li>
-      </ul>
-      <p><strong>Instrucciones:</strong></p>
-      <ol>
-        <li>Vierte el yogur en un bol.</li>
-        <li>Añade la fruta cortada y la granola.</li>
-        <li>Espolvorea los frutos secos.</li>
-        <li>Agrega miel al gusto y mezcla bien.</li>
-      </ol>
-    `
-  };
-    document.querySelectorAll('#desayunoDias .day').forEach(dia => {
-      dia.addEventListener('click', () => {
-        const letra = dia.getAttribute('data-dia');
-        document.getElementById('desayuno').innerHTML = desayunos[letra];
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
