@@ -19,7 +19,7 @@ INSTRUCCIÓN:
 
 ¡Prueba la aplicación ahora mismo! La web está desplegada usando GitHub Pages y puedes acceder a ella aquí:
 
-**[https://TU_USUARIO.github.io/monoslocosfitnes/](https://TU_USUARIO.github.io/monoslocosfitnes)**
+**[https://adrianticort.github.io/prueba/](https://adiranticort.github.io/prueba)**
 
 <!--
 INSTRUCCIÓN:
