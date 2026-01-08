@@ -4,72 +4,79 @@
 
 // Datos de rutinas por día de la semana (0=Domingo, 1=Lunes, etc.)
 const WORKOUTS = {
-  0: { // Domingo - Core / movilidad / estiramiento
-    type: 'workout',
-    name: 'Core + Movilidad',
-    emoji: '🧘',
-    exercises: [
-      { name: 'Hollow body hold', detail: '3×30 s', emoji: '🌀' },
-      { name: 'Superman hold', detail: '3×20 s', emoji: '🦸' },
-      { name: 'Pectoral + hombros', detail: '2×30 s cada lado', emoji: '💪' },
-      { name: 'Espalda alta / torácica', detail: '2×30 s', emoji: '🫂' },
-      { name: 'Cadera / glúteos', detail: '2×30 s', emoji: '🍑' }
-    ]
-  },
-  1: { // Lunes - Descanso
+  0: { // Domingo
     type: 'rest',
-    name: 'Día de Descanso',
-    emoji: '😴'
+    name: 'Descanso + Movilidad',
+    emoji: '🧘'
   },
-  2: { // Martes - Lean planche / empuje + piernas ligera (antes de artes marciales)
+
+  1: { // Lunes
     type: 'workout',
-    name: 'Empuje + Lean Planche + Piernas',
+    name: 'Upper Body Fuerza + Planche',
     emoji: '💪',
     exercises: [
-      { name: 'Planche lean', detail: '4×10–15 s', emoji: '🤸', },
-      { name: 'Flexiones agarre variable', detail: '4×8–12 reps', emoji: '🫸' },
-      { name: 'Pike push-ups', detail: '3×6–10 reps', emoji: '🔻' },
-      { name: 'Sentadillas profundas', detail: '4×12–15 reps', emoji: '🏋️' },
-      { name: 'Hollow body hold', detail: '3×20–30 s', emoji: '🌀' }
+      { name: 'Planche lean', detail: '4×12–15 s', emoji: '📐' },
+      { name: 'Flexiones clásicas', detail: '4×10–15', emoji: '🫸' },
+      { name: 'Pike push-ups', detail: '4×8–12', emoji: '🔻' },
+      { name: 'Flexiones diamante', detail: '3×8–12', emoji: '💎' },
+      { name: 'Hollow body hold', detail: '3×25–30 s', emoji: '🧱' }
     ]
   },
-  3: { // Miércoles - Descanso
+
+  2: { // Martes
+    type: 'workout',
+    name: 'Upper Técnico + Core (Pre Artes Marciales)',
+    emoji: '⚙️',
+    exercises: [
+      { name: 'Planche lean', detail: '3×10–12 s', emoji: '📏' },
+      { name: 'Remo con banda/toalla', detail: '3×12–15', emoji: '🪢' },
+      { name: 'Curl bíceps con banda', detail: '3×12–15', emoji: '💪' },
+      { name: 'Hollow rocks', detail: '3×15–20', emoji: '🔄' }
+    ]
+  },
+
+  3: { // Miércoles
     type: 'rest',
-    name: 'Día de Descanso',
+    name: 'Descanso Total',
     emoji: '😴'
   },
-  4: { // Jueves - Lean planche / tirón + core (antes de artes marciales)
+
+  4: { // Jueves
     type: 'workout',
-    name: 'Tirón + Lean Planche + Core',
+    name: 'Espalda Alta + Escápulas + Core (AAM)',
     emoji: '🦾',
     exercises: [
-      { name: 'Towel row / banda', detail: '4×8–12 reps', emoji: '🎒' },
-      { name: 'Chin-up negativo', detail: '4×5–8 reps', emoji: '🏋️' },
-      { name: 'Hollow rocks', detail: '3×15–20 reps', emoji: '🌀' },
-      { name: 'Planche lean', detail: '3×10–15 s', emoji: '🤸' }
+      { name: 'Remo con banda/toalla', detail: '4×10–15', emoji: '🪢' },
+      { name: 'Scapular retractions', detail: '3×12–15', emoji: '📎' },
+      { name: 'Reverse snow angels', detail: '3×12', emoji: '❄️' },
+      { name: 'Hollow hold', detail: '3×20–25 s', emoji: '🧱' },
+      { name: 'Planche lean técnico', detail: '2×10 s', emoji: '📐' }
     ]
   },
-  5: { // Viernes - Piernas + espalda superior / postura
+
+  5: { // Viernes
     type: 'workout',
-    name: 'Piernas + Espalda Superior',
+    name: 'Piernas Completas',
     emoji: '🦵',
     exercises: [
-      { name: 'Squat jumps', detail: '4×12 reps', emoji: '🏃' },
-      { name: 'Bulgarian split squats', detail: '3×10–12 reps', emoji: '🚶' },
-      { name: 'Superman hold', detail: '3×20–30 s', emoji: '🦸' },
-      { name: 'Reverse snow angels', detail: '3×12 reps', emoji: '❄️' },
-      { name: 'Hollow body rocks', detail: '3×20 s', emoji: '🌀' }
+      { name: 'Sentadilla profunda', detail: '4×15–20', emoji: '🏋️' },
+      { name: 'Bulgarian split squat', detail: '4×10–12/ pierna', emoji: '🪜' },
+      { name: 'Squat jumps', detail: '3×10', emoji: '🦘' },
+      { name: 'Elevación de talones', detail: '4×20–25', emoji: '🩰' },
+      { name: 'Glute bridge', detail: '3×15–20', emoji: '🌉' }
     ]
   },
-  6: { // Sábado - Upper body / planche focus
+
+  6: { // Sábado
     type: 'workout',
-    name: 'Upper Body + Planche',
-    emoji: '⚡',
+    name: 'Upper Body + Planche (Día Clave)',
+    emoji: '🔥',
     exercises: [
-      { name: 'Planche lean', detail: '4×12–15 s', emoji: '🤸' },
-      { name: 'Tuck planche hold', detail: '3×10–15 s', emoji: '🌀' },
-      { name: 'Flexiones agarre variable', detail: '4×8–12 reps', emoji: '🫸' },
-      { name: 'Band pull-aparts', detail: '3×12–15 reps', emoji: '💪' }
+      { name: 'Planche lean', detail: '5×12–20 s', emoji: '📐' },
+      { name: 'Tuck planche hold', detail: '3×8–12 s', emoji: '🧠' },
+      { name: 'Flexiones agarre variable', detail: '4×8–12', emoji: '🫸' },
+      { name: 'Pike push-ups', detail: '3×8–10', emoji: '🔻' },
+      { name: 'Band pull-aparts', detail: '3×15', emoji: '🪢' }
     ]
   }
 };
